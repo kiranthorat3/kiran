@@ -353,4 +353,359 @@
     </div>
   </main>
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiran Thorat</title>
+  <style>
+    :root {
+      --bg: #f6f2ea;
+      --bg-soft: #fffdf8;
+      --text: #1f2937;
+      --muted: #5f6b7a;
+      --line: #e7dfd2;
+      --card: #fffaf3;
+      --accent: #6d28d9;
+      --accent-soft: #efe7ff;
+      --green: #0f766e;
+      --shadow: 0 12px 32px rgba(31, 41, 55, 0.08);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: linear-gradient(to bottom, #fbf8f2 0%, #f6f2ea 100%);
+      line-height: 1.75;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .page {
+      padding: 48px 0 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .left-col {
+      position: sticky;
+      top: 24px;
+    }
+
+    .main-image {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #ddd;
+      margin-bottom: 18px;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .links-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .links-box h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-family: Arial, sans-serif;
+      color: var(--green);
+      letter-spacing: 0.02em;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-list a {
+      display: inline-block;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .link-list a:hover {
+      text-decoration: none;
+      background: #faf5ec;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.03;
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      font-size: 1.18rem;
+      color: var(--muted);
+      margin: 0 0 16px;
+      max-width: 760px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: 1.85rem;
+      line-height: 1.15;
+    }
+
+    .section-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #4c1d95;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .mini-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+    }
+
+    .mini-card p,
+    .mini-card li {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .mini-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .edu-item {
+      margin-bottom: 14px;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-item strong {
+      display: block;
+      font-size: 1.03rem;
+    }
+
+    .edu-item span {
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .left-col {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container page">
+    <div class="hero">
+      <aside class="left-col">
+        <div class="main-image">
+          <img src="main-visual.jpg" alt="Main visual for Kiran Thorat">
+        </div>
+
+        <div class="links-box">
+          <h3>Find me here</h3>
+          <div class="link-list">
+            <a href="https://github.com/kiranthorat3" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://orcid.org/0009-0005-9190-798X" target="_blank" rel="noopener noreferrer">ORCID</a>
+            <a href="https://www.instagram.com/iamkiranthorat/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="right-col">
+        <div class="eyebrow">Applied AI · Research · Life beyond work</div>
+        <h1>Kiran Thorat</h1>
+
+        <p class="lead">
+          Researcher working broadly in applied AI, with interests in machine learning systems, large language models, generative methods, and graph-based learning for structured real-world problems.
+        </p>
+
+        <p class="lead">
+          I’m especially drawn to work that combines technical depth with practical usefulness — methods that are not only strong in theory, but also meaningful in application.
+        </p>
+
+        <section>
+          <div class="section-card">
+            <h2 class="section-title">Research</h2>
+            <p>
+              My work sits broadly within applied AI. I’m interested in building useful machine learning methods and intelligent systems for technical and structured domains, especially where performance, efficiency, and real-world constraints all matter.
+            </p>
+            <p>
+              Some themes I return to often include large language models, generative approaches, graph-based learning, and computational systems for complex technical problems. You can read more on the <a href="research.html">research page</a>.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Applied AI</span>
+              <span class="tag">Machine Learning Systems</span>
+              <span class="tag">Large Language Models</span>
+              <span class="tag">Generative Models</span>
+              <span class="tag">Graph Learning</span>
+              <span class="tag">Efficient Inference</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-card">
+            <h2 class="section-title">Other Interests</h2>
+            <p>
+              Outside research, I care about language, exercise, books, films, music, travel, and cities. These are not separate from the way I think; they shape perspective, attention, and taste.
+            </p>
+            <p>
+              I’m especially drawn to things that reveal more depth with time: places that open up slowly, books that stay alive after finishing, and films or songs that linger. I’ll keep more photos and personal material on the <a href="interests.html">other interests page</a>.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Languages</span>
+              <span class="tag">Gym</span>
+              <span class="tag">Hiking</span>
+              <span class="tag">Books & Ideas</span>
+              <span class="tag">Movies & Songs</span>
+              <span class="tag">Travel</span>
+              <span class="tag">NYC</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="two-col">
+            <div class="mini-card">
+              <h3>Education</h3>
+              <div class="edu-item">
+                <strong>University of Connecticut</strong>
+                <span>PhD in Computer Science and Engineering</span>
+              </div>
+              <div class="edu-item">
+                <strong>Indian Institute of Technology Bombay</strong>
+                <span>M.Tech in Electrical Engineering (Microelectronics)</span>
+              </div>
+            </div>
+
+            <div class="mini-card">
+              <h3>Selected highlights</h3>
+              <ul>
+                <li>Best Paper Award, ICLAD 2025</li>
+                <li>DAC Young Fellow, 2023</li>
+                <li>Synchrony Financial Cybersecurity Graduate Fellowship</li>
+                <li>Predoctoral Honorable Mention, 2024 & 2025</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <p class="footer-note">
+          This homepage stays intentionally broad. The deeper research details and full paper list live on the research page, while photos and personal material can expand more fully on the interests page.
+        </p>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
