@@ -6,35 +6,34 @@
   <title>Kiran Thorat</title>
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-soft: #111827;
-      --card: rgba(255, 255, 255, 0.08);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #e5e7eb;
-      --muted: #cbd5e1;
-      --accent: #60a5fa;
-      --accent-2: #a78bfa;
-      --accent-3: #34d399;
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      --bg: #f7f4ee;
+      --bg-soft: #fffdf8;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --line: #e7dfd4;
+      --card: #fffaf2;
+      --accent: #7c3aed;
+      --accent-soft: #efe7ff;
+      --accent-2: #0f766e;
+      --shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+      --max: 1080px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
+      font-family: Georgia, "Times New Roman", serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(96,165,250,0.20), transparent 28%),
-        radial-gradient(circle at top right, rgba(167,139,250,0.18), transparent 30%),
-        linear-gradient(180deg, #08101f 0%, #0f172a 45%, #111827 100%);
+        linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0.7)),
+        var(--bg);
+      line-height: 1.75;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
@@ -47,183 +46,89 @@
     }
 
     .container {
-      max-width: 1120px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 0 22px;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(8, 16, 31, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .brand {
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      color: #fff;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-      text-decoration: none;
+      padding: 0 24px;
     }
 
     .hero {
-      padding: 72px 0 40px;
+      padding: 64px 0 28px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.85fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
       align-items: center;
     }
 
     .eyebrow {
-      display: inline-block;
-      font-size: 0.88rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent-3);
+      color: var(--accent-2);
       margin-bottom: 16px;
     }
 
     h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.02;
       margin: 0 0 18px;
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
-      line-height: 1.08;
-      color: #fff;
       letter-spacing: -0.03em;
     }
 
-    .hero p {
-      margin: 0 0 16px;
-      font-size: 1.08rem;
+    .lead {
+      font-size: 1.18rem;
       color: var(--muted);
-      max-width: 720px;
+      margin-bottom: 16px;
+      max-width: 680px;
     }
 
-    .hero strong {
-      color: #fff;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: 0.2s ease;
-    }
-
-    .button.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      border: none;
+    .hero-photo {
+      border-radius: 26px;
+      overflow: hidden;
       box-shadow: var(--shadow);
+      background: #ddd;
     }
 
-    .button.primary:hover {
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    .button.secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-    }
-
-    .button.secondary:hover {
-      text-decoration: none;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .profile-img {
+    .hero-photo img {
       width: 100%;
-      max-width: 340px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-radius: 22px;
-      display: block;
-      margin: 0 auto 20px;
-      background: rgba(255,255,255,0.10);
-    }
-
-    .hero-card h3 {
-      margin: 0 0 10px;
-      color: #fff;
-      font-size: 1.15rem;
-    }
-
-    .hero-card p {
-      font-size: 0.98rem;
-      margin-bottom: 0;
     }
 
     section {
-      padding: 24px 0 18px;
+      padding: 30px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 18px;
     }
 
     .section-title {
-      font-size: 1.9rem;
+      font-size: 2rem;
+      line-height: 1.15;
       margin: 0 0 10px;
-      color: #fff;
     }
 
-    .section-intro {
-      margin: 0 0 24px;
+    .section-text {
       color: var(--muted);
-      max-width: 760px;
+      margin: 0;
+      font-size: 1.04rem;
     }
 
-    .content-grid {
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
       border-radius: 22px;
       padding: 24px;
       box-shadow: var(--shadow);
@@ -232,8 +137,7 @@
     .card h3 {
       margin-top: 0;
       margin-bottom: 12px;
-      color: #fff;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
     }
 
     .card p {
@@ -245,160 +149,200 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     .tag {
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      font-size: 0.94rem;
-      color: #e2e8f0;
+      background: var(--accent-soft);
+      color: #4c1d95;
     }
 
-    .split {
+    .highlight-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
+    .highlight {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
 
-    .links-grid a {
+    .highlight strong {
       display: block;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .links-grid a:hover {
-      text-decoration: none;
-      background: rgba(255,255,255,0.10);
-    }
-
-    .mini-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .mini-list li {
       margin-bottom: 8px;
+      font-size: 0.98rem;
+      font-family: Arial, sans-serif;
     }
 
-    footer {
-      padding: 34px 0 60px;
-      color: #94a3b8;
+    .highlight span {
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
-    @media (max-width: 860px) {
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 18px;
+    }
+
+    .media-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .media-card .caption {
+      padding: 14px 16px 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .closing {
+      padding-top: 18px;
+      padding-bottom: 70px;
+    }
+
+    .closing-box {
+      background: linear-gradient(180deg, #fffdf8, #fff8ef);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-end {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .nav-end a {
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .nav-end a:hover {
+      text-decoration: none;
+      background: #faf5ec;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding-bottom: 40px;
+    }
+
+    @media (max-width: 900px) {
       .hero-grid,
-      .content-grid,
-      .split,
-      .links-grid {
+      .two-col,
+      .media-grid,
+      .highlight-grid {
         grid-template-columns: 1fr;
       }
 
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
       .hero {
-        padding-top: 46px;
-      }
-
-      .profile-img {
-        max-width: 280px;
+        padding-top: 40px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">Kiran Thorat</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="interests.html">Other Interests</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="container">
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow">Research • Ideas • Life beyond work</div>
+          <div class="eyebrow">Applied AI · Research · Life beyond work</div>
           <h1>Kiran Thorat</h1>
-          <p>
-            <strong>Researcher interested in machine learning, intelligent systems, and the broader relationship between computation, ideas, and the world around us.</strong>
+          <p class="lead">
+            Researcher working broadly in applied AI, with interests in machine learning systems, large language models, generative methods, and graph-based learning for structured real-world problems.
           </p>
-          <p>
-            My work is broadly centered on machine learning, AI systems, and computational methods. I’m especially drawn to problems that connect theory and practice — ideas that are technically meaningful, but also useful in the real world.
+          <p class="lead">
+            I’m especially drawn to research that connects technical depth with practical usefulness — work that is not only strong in method, but also meaningful in application.
           </p>
-          <p>
-            Outside research, I’m interested in languages, exercise, books, philosophy, film, music, travel, and cities. I like things that reveal more depth the longer you stay with them.
+          <p class="lead">
+            Outside research, I care about language, exercise, books, films, music, travel, and cities. These interests shape how I think, what I notice, and what I return to.
           </p>
+        </div>
 
-          <div class="cta-row">
-            <a class="button primary" href="research.html">Explore research</a>
-            <a class="button secondary" href="interests.html">See other interests</a>
+        <div class="hero-photo">
+          <img src="profile.jpg" alt="Kiran Thorat">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Research</h2>
+        <p class="section-text">
+          My work sits broadly within applied AI. I’m interested in building useful machine learning methods and intelligent systems for technical and structured domains, especially where performance, efficiency, and real-world constraints all matter.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>What I’m broadly interested in</h3>
+          <p>
+            I care about machine learning methods that go beyond generic benchmarks and connect with practical problems. Much of my work lives around learning systems, language models, generative approaches, and graph-based methods for complex technical settings.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Applied AI</span>
+            <span class="tag">Machine Learning Systems</span>
+            <span class="tag">Large Language Models</span>
+            <span class="tag">Generative Models</span>
+            <span class="tag">Graph Learning</span>
+            <span class="tag">Efficient Inference</span>
           </div>
         </div>
 
-        <aside class="hero-card">
-          <img src="profile.jpg" alt="Kiran Thorat" class="profile-img">
-          <h3>A few themes I care about</h3>
-          <p>
-            Machine learning, systems, language, books that stay with you, films with emotional afterglow, travel through walking and observation, and cities with character — especially New York.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Research</h2>
-      <p class="section-intro">
-        I’m interested in research that balances technical depth with real usefulness — work that is elegant in idea, practical in implementation, and grounded in meaningful applications.
-      </p>
-      <div class="card">
-        <div class="tag-list">
-          <span class="tag">Machine Learning</span>
-          <span class="tag">AI Systems</span>
-          <span class="tag">Large Language Models</span>
-          <span class="tag">Generative Methods</span>
-          <span class="tag">Graph-based Learning</span>
-          <span class="tag">Efficient Computation</span>
-          <span class="tag">Structured Problem Solving</span>
-          <span class="tag">Real-world Systems</span>
-        </div>
-        <p style="margin-top:18px;">
-          On the research page, I go into these themes in a little more detail.
-        </p>
-        <p style="margin-bottom:0;"><a href="research.html">Go to Research →</a></p>
-      </div>
-    </section>
-
-    <section>
-      <div class="split">
         <div class="card">
-          <h2 class="section-title" style="font-size:1.55rem; margin-top:0;">Beyond research</h2>
+          <h3>How I think about it</h3>
           <p>
-            The things that matter to me outside work are not separate from how I think. Language, movement, books, film, music, travel, and cities all shape attention, taste, and perspective.
+            I’m drawn to work that feels both rigorous and usable — methods that hold up technically, but are also grounded in real applications. I like problems where intelligence, efficiency, and structure all need to be taken seriously at once.
           </p>
+          <div class="tag-list">
+            <span class="tag">Structured Problems</span>
+            <span class="tag">Real-world Use</span>
+            <span class="tag">Practical Systems</span>
+            <span class="tag">Scalable Methods</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Beyond research</h2>
+        <p class="section-text">
+          I like things that deepen attention and perspective: languages, movement, books, films, music, travel, and cities. These are not separate from research for me; they shape taste, patience, and the way I try to understand the world.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Some recurring themes</h3>
           <div class="tag-list">
             <span class="tag">Languages</span>
             <span class="tag">Gym</span>
@@ -408,39 +352,92 @@
             <span class="tag">Travel</span>
             <span class="tag">NYC</span>
           </div>
-          <p style="margin-top:18px; margin-bottom:0;">
-            <a href="interests.html">Go to Other Interests →</a>
-          </p>
         </div>
 
         <div class="card">
-          <h2 class="section-title" style="font-size:1.55rem; margin-top:0;">Currently</h2>
-          <ul class="mini-list">
-            <li>Thinking broadly about machine learning, systems, and useful computation.</li>
-            <li>Trying to stay consistent with the gym and long walks.</li>
-            <li>Returning to books and films that grow richer with time.</li>
-            <li>Paying attention to the feel and rhythm of cities.</li>
-          </ul>
+          <h3>What stays with me</h3>
+          <p>
+            I’m drawn to books and films with emotional or philosophical afterlife, to cities that reveal themselves slowly, and to travel that comes through walking, observation, and rhythm rather than only itineraries.
+          </p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Elsewhere</h2>
-      <p class="section-intro">
-        You can also find me here.
-      </p>
-      <div class="links-grid">
-        <a href="https://github.com/kiranthorat3" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://orcid.org/0009-0005-9190-798X" target="_blank" rel="noopener noreferrer">ORCID</a>
-        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+      <div class="section-header">
+        <h2 class="section-title">Selected highlights</h2>
+        <p class="section-text">
+          A few recognitions and milestones that matter to me.
+        </p>
+      </div>
+
+      <div class="highlight-grid">
+        <div class="highlight">
+          <strong>Best Paper Award</strong>
+          <span>ICLAD 2025</span>
+        </div>
+        <div class="highlight">
+          <strong>DAC Young Fellow</strong>
+          <span>2023</span>
+        </div>
+        <div class="highlight">
+          <strong>Graduate Fellowship</strong>
+          <span>Synchrony Financial Cybersecurity</span>
+        </div>
+        <div class="highlight">
+          <strong>Honorable Mention</strong>
+          <span>Predoctoral recognition, 2024 & 2025</span>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer class="container">
-    © Kiran Thorat
-  </footer>
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">A visual layer</h2>
+        <p class="section-text">
+          You can replace these with your own images: a research visual, a travel or city photograph, a bookshelf or film still collage, or anything else that feels true to the site.
+        </p>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-card">
+          <img src="research-image.jpg" alt="Research visual">
+          <div class="caption">A research-related image, figure, or visual that reflects your work in applied AI.</div>
+        </div>
+        <div class="media-card">
+          <img src="city-image.jpg" alt="City or travel visual">
+          <div class="caption">A city or travel photograph — New York would work especially well here.</div>
+        </div>
+        <div class="media-card">
+          <img src="books-films.jpg" alt="Books or films visual">
+          <div class="caption">A books, films, or moodboard image to make the page feel more personal and textured.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-box">
+        <div class="section-header" style="margin-bottom:0;">
+          <h2 class="section-title">Elsewhere</h2>
+          <p class="section-text">
+            For more, you can visit the research page, the interests page, or find me through the links below.
+          </p>
+        </div>
+
+        <div class="nav-end">
+          <a href="research.html">Research</a>
+          <a href="interests.html">Other Interests</a>
+          <a href="https://github.com/kiranthorat3" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://orcid.org/0009-0005-9190-798X" target="_blank" rel="noopener noreferrer">ORCID</a>
+          <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © Kiran Thorat
+    </footer>
+  </main>
 </body>
 </html>
