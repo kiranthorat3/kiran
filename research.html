@@ -3,77 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research | Your Name</title>
+  <title>Research | Kiran Thorat</title>
   <style>
+    :root {
+      --bg: #f6f2ea;
+      --bg-soft: #fffdf8;
+      --text: #1f2937;
+      --muted: #5f6b7a;
+      --line: #e7dfd2;
+      --accent: #6d28d9;
+      --green: #0f766e;
+      --shadow: 0 12px 32px rgba(31, 41, 55, 0.08);
+      --max: 1000px;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 30px 20px 60px;
-      line-height: 1.7;
-      color: #222;
-      background: #fafafa;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: linear-gradient(to bottom, #fbf8f2 0%, #f6f2ea 100%);
+      line-height: 1.75;
     }
-    nav {
-      margin-bottom: 40px;
-    }
-    nav a {
-      margin-right: 18px;
+
+    a {
+      color: var(--accent);
       text-decoration: none;
-      color: #333;
-      font-weight: 600;
     }
-    nav a:hover {
+
+    a:hover {
       text-decoration: underline;
     }
-    .section {
-      background: white;
-      padding: 24px;
-      border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    .top-link {
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .section-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
       margin-bottom: 24px;
     }
-    h1 {
-      margin-bottom: 10px;
+
+    .section-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.6rem;
     }
-    ul {
-      padding-left: 20px;
+
+    .paper {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .paper:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .paper-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .paper-authors,
+    .paper-venue {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .paper-venue {
+      margin-top: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #efe7ff;
+      color: #4c1d95;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="interests.html">Other Interests</a>
-  </nav>
+  <main class="container">
+    <a class="top-link" href="index.html">← Back to home</a>
 
-  <h1>Research</h1>
-  <p>
-    My research interests are broadly in machine learning, intelligent systems, and computational methods. I’m particularly drawn to problems that connect conceptual clarity with practical relevance — work that is not only technically interesting, but also useful, efficient, and grounded in real applications.
-  </p>
-
-  <div class="section">
-    <h2>Areas I’m interested in</h2>
-    <ul>
-      <li>Machine learning and AI</li>
-      <li>Large language models</li>
-      <li>Generative methods</li>
-      <li>Graph-based learning</li>
-      <li>Efficient computation</li>
-      <li>Structured and technical problem solving</li>
-      <li>Systems that connect theory and practice</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>How I think about research</h2>
-    <p>
-      I’m interested in work that balances technical depth with real usefulness. In general, I like research that is elegant in idea, practical in implementation, and capable of helping us understand or build better systems.
+    <h1>Research</h1>
+    <p class="lead">
+      My research is broadly in applied AI, with a focus on machine learning systems, large language models, generative methods, and graph-based learning for structured technical domains. I’m interested in methods that are both technically strong and practically useful.
     </p>
-    <p>
-      I’m especially drawn to problems where computation interacts with structure, complexity, and real-world constraints.
-    </p>
-  </div>
+
+    <div class="section-card">
+      <h2>Selected papers</h2>
+
+      <div class="paper">
+        <div class="paper-title">LLM-VeriPPA: Power, Performance, and Area Optimization aware Verilog Code Generation with Large Language Models</div>
+        <div class="paper-authors">K Thorat, J Zhao, Y Liu, A Hasan, H Peng, X Xie, B Lei, C Ding</div>
+        <div class="paper-venue">2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD), 1–7</div>
+        <span class="tag">MLCAD 2025</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">GROOT: Graph Edge Re-growth and Partitioning for the Verification of Large Designs in Logic Synthesis</div>
+        <div class="paper-authors">K Thorat, H Peng, Y Luo, X Xie, S Huang, A Hasan, J Zhao, Y Li, Z Shi, ...</div>
+        <div class="paper-venue">2025 IEEE/ACM International Conference on Computer Aided Design (ICCAD)</div>
+        <span class="tag">ICCAD 2025</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">DR-CircuitGNN: Training Acceleration of Heterogeneous Circuit Graph Neural Network on GPUs</div>
+        <div class="paper-authors">Y Luo, S Li, J Tao, KG Thorat, X Xie, H Peng, N Xu, C Ding, S Huang</div>
+        <div class="paper-venue">Proceedings of the 39th ACM International Conference on Supercomputing, 221–235</div>
+        <span class="tag">ICS 2025</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">Hivegen–hierarchical llm-based verilog generation for scalable chip design</div>
+        <div class="paper-authors">J Tang, J Qin, K Thorat, C Zhu-Tian, Y Cao, YK Zhao, C Ding</div>
+        <div class="paper-venue">2025 IEEE International Conference on LLM-Aided Design (ICLAD), 30–36</div>
+        <span class="tag">ICLAD 2025</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">TROJAN-GUARD: Hardware Trojans Detection Using GNN in RTL Designs</div>
+        <div class="paper-authors">K Thorat, A Hasan, C Ding, Z Shi</div>
+        <div class="paper-venue">2025 International Joint Conference on Neural Networks (IJCNN), Rome, Italy</div>
+        <span class="tag">IJCNN 2025</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">LinGCN: Structural linearized graph convolutional network for homomorphically encrypted inference</div>
+        <div class="paper-authors">H Peng, R Ran, Y Luo, J Zhao, S Huang, K Thorat, T Geng, C Wang, X Xu, ...</div>
+        <div class="paper-venue">Advances in Neural Information Processing Systems 36</div>
+        <span class="tag">NeurIPS 2023</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">CODG-ReRAM: An algorithm-hardware co-design to accelerate semi-structured GNNs on ReRAM</div>
+        <div class="paper-authors">Y Luo, P Behnam, K Thorat, Z Liu, H Peng, S Huang, S Zhou, O Khan, ...</div>
+        <div class="paper-venue">2022 IEEE 40th International Conference on Computer Design (ICCD), 280–289</div>
+        <span class="tag">ICCD 2022</span>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
