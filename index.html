@@ -6,32 +6,31 @@
   <title>Kiran Thorat</title>
   <style>
     :root {
-      --bg: #f6f2ea;
-      --bg-soft: #fffdf8;
+      --bg: #f5f1e8;
+      --panel: #fffaf2;
+      --panel-2: #fffdf8;
       --text: #1f2937;
       --muted: #5f6b7a;
-      --line: #e7dfd2;
-      --card: #fffaf3;
-      --accent: #6d28d9;
-      --accent-soft: #efe7ff;
-      --green: #0f766e;
-      --shadow: 0 12px 32px rgba(31, 41, 55, 0.08);
-      --max: 1120px;
+      --line: #e6ddcf;
+      --accent: #2563eb;
+      --accent-2: #0f766e;
+      --shadow: 0 10px 28px rgba(31, 41, 55, 0.08);
+      --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Arial, sans-serif;
       color: var(--text);
-      background: linear-gradient(to bottom, #fbf8f2 0%, #f6f2ea 100%);
-      line-height: 1.75;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(15, 118, 110, 0.08), transparent 24%),
+        linear-gradient(180deg, #fbf8f2 0%, #f5f1e8 100%);
+      line-height: 1.6;
     }
 
     a {
@@ -43,220 +42,230 @@
       text-decoration: underline;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .container {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 28px 22px 48px;
     }
 
-    .page {
-      padding: 48px 0 64px;
-    }
-
-    .hero {
+    .layout {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 42px;
+      grid-template-columns: 340px 1fr;
+      gap: 26px;
       align-items: start;
     }
 
     .left-col {
       position: sticky;
-      top: 24px;
+      top: 18px;
     }
 
-    .main-image {
-      border-radius: 26px;
+    .main-photo {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      background: #ddd;
-      margin-bottom: 18px;
     }
 
-    .main-image img {
+    .main-photo img {
       width: 100%;
       height: auto;
       object-fit: cover;
+      background: #ddd;
     }
 
     .links-box {
-      background: var(--bg-soft);
+      margin-top: 14px;
+      background: var(--panel-2);
       border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 16px;
+      border-radius: 18px;
+      padding: 14px;
       box-shadow: var(--shadow);
     }
 
     .links-box h3 {
       margin: 0 0 10px;
-      font-size: 1rem;
-      font-family: Arial, sans-serif;
-      color: var(--green);
-      letter-spacing: 0.02em;
+      font-size: 0.98rem;
+      color: var(--accent-2);
     }
 
     .link-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .link-list a {
       display: inline-block;
-      padding: 9px 13px;
+      padding: 8px 12px;
       border-radius: 999px;
       background: white;
       border: 1px solid var(--line);
       color: var(--text);
-      font-family: Arial, sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
     }
 
     .link-list a:hover {
       text-decoration: none;
-      background: #faf5ec;
+      background: #f8f4ec;
     }
 
-    .eyebrow {
-      font-family: Arial, sans-serif;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      line-height: 1.03;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
-    }
-
-    .lead {
-      font-size: 1.18rem;
-      color: var(--muted);
-      margin: 0 0 16px;
-      max-width: 760px;
-    }
-
-    section {
-      margin-top: 34px;
-    }
-
-    .section-card {
-      background: var(--bg-soft);
+    .intro {
+      background: var(--panel-2);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px;
+      border-radius: 22px;
+      padding: 22px;
       box-shadow: var(--shadow);
     }
 
-    .section-title {
-      margin: 0 0 10px;
-      font-size: 1.85rem;
-      line-height: 1.15;
+    .kicker {
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 8px;
     }
 
-    .section-card p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 1.04rem;
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
     }
 
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+    .subline {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 14px;
     }
 
-    .tag {
-      font-family: Arial, sans-serif;
-      font-size: 0.92rem;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #4c1d95;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .mini-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 20px;
-    }
-
-    .mini-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.14rem;
-    }
-
-    .mini-card p,
-    .mini-card li {
+    .intro p {
+      margin: 0;
       color: var(--muted);
       font-size: 1rem;
     }
 
-    .mini-card ul {
-      margin: 0;
-      padding-left: 18px;
+    .education {
+      margin-top: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .education h2,
+    .module h2 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+    }
+
+    .edu-list {
+      display: grid;
+      gap: 10px;
     }
 
     .edu-item {
-      margin-bottom: 14px;
-    }
-
-    .edu-item:last-child {
-      margin-bottom: 0;
+      padding: 12px 14px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
     }
 
     .edu-item strong {
       display: block;
-      font-size: 1.03rem;
+      margin-bottom: 3px;
+      font-size: 1rem;
     }
 
     .edu-item span {
       color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .module {
+      margin-top: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .module-image {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #ddd;
+    }
+
+    .module-image img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .module-text p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .module-text p:last-child {
+      margin-bottom: 0;
     }
 
     .footer-note {
       margin-top: 18px;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.94rem;
     }
 
-    @media (max-width: 920px) {
-      .hero,
-      .two-col {
+    @media (max-width: 940px) {
+      .layout {
         grid-template-columns: 1fr;
       }
 
       .left-col {
         position: static;
       }
+
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .module-image img {
+        height: auto;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="container page">
-    <div class="hero">
+  <main class="container">
+    <div class="layout">
       <aside class="left-col">
-        <div class="main-image">
-          <img src="main-visual.jpg" alt="Main visual for Kiran Thorat">
+        <div class="main-photo">
+          <img src="main-pic.jpg" alt="Kiran Thorat">
         </div>
 
         <div class="links-box">
-          <h3>Find me here</h3>
+          <h3>Links</h3>
           <div class="link-list">
             <a href="https://github.com/kiranthorat3" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -267,89 +276,65 @@
         </div>
       </aside>
 
-      <div class="right-col">
-        <div class="eyebrow">Applied AI · Research · Life beyond work</div>
-        <h1>Kiran Thorat</h1>
+      <section class="right-col">
+        <div class="intro">
+          <div class="kicker">Applied AI · Machine Learning · Systems</div>
+          <h1>Kiran Thorat</h1>
+          <div class="subline">Researcher working in applied AI and machine learning for real-world technical problems.</div>
+          <p>
+            My work is broadly in machine learning systems, large language models, generative methods, and graph-based learning. I care about building methods that are useful in practice, easy to understand, and grounded in real technical applications.
+          </p>
+        </div>
 
-        <p class="lead">
-          Researcher working broadly in applied AI, with interests in machine learning systems, large language models, generative methods, and graph-based learning for structured real-world problems.
-        </p>
-
-        <p class="lead">
-          I’m especially drawn to work that combines technical depth with practical usefulness — methods that are not only strong in theory, but also meaningful in application.
-        </p>
-
-        <section>
-          <div class="section-card">
-            <h2 class="section-title">Research</h2>
-            <p>
-              My work sits broadly within applied AI. I’m interested in building useful machine learning methods and intelligent systems for technical and structured domains, especially where performance, efficiency, and real-world constraints all matter.
-            </p>
-            <p>
-              Some themes I return to often include large language models, generative approaches, graph-based learning, and computational systems for complex technical problems. You can read more on the <a href="research.html">research page</a>.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Applied AI</span>
-              <span class="tag">Machine Learning Systems</span>
-              <span class="tag">Large Language Models</span>
-              <span class="tag">Generative Models</span>
-              <span class="tag">Graph Learning</span>
-              <span class="tag">Efficient Inference</span>
+        <div class="education">
+          <h2>Education</h2>
+          <div class="edu-list">
+            <div class="edu-item">
+              <strong>University of Connecticut</strong>
+              <span>PhD</span>
+            </div>
+            <div class="edu-item">
+              <strong>IIT Bombay</strong>
+              <span>M.Tech</span>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section>
-          <div class="section-card">
-            <h2 class="section-title">Other Interests</h2>
-            <p>
-              Outside research, I care about language, exercise, books, films, music, travel, and cities. These are not separate from the way I think; they shape perspective, attention, and taste.
-            </p>
-            <p>
-              I’m especially drawn to things that reveal more depth with time: places that open up slowly, books that stay alive after finishing, and films or songs that linger. I’ll keep more photos and personal material on the <a href="interests.html">other interests page</a>.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Languages</span>
-              <span class="tag">Gym</span>
-              <span class="tag">Hiking</span>
-              <span class="tag">Books & Ideas</span>
-              <span class="tag">Movies & Songs</span>
-              <span class="tag">Travel</span>
-              <span class="tag">NYC</span>
+        <div class="module">
+          <h2>Research</h2>
+          <div class="module-grid">
+            <div class="module-image">
+              <img src="research-pic.jpg" alt="Research visual">
+            </div>
+            <div class="module-text">
+              <p>
+                My research focuses on applied AI for structured technical problems. I work across machine learning systems, large language models, generative models, and graph learning, especially in settings where performance, efficiency, and real-world constraints all matter.
+              </p>
+              <p>
+                A lot of my recent work connects AI with hardware and design problems, including code generation, verification, security, and scalable learning methods. More research details and the full paper list are <a href="research.html">here</a>.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section>
-          <div class="two-col">
-            <div class="mini-card">
-              <h3>Education</h3>
-              <div class="edu-item">
-                <strong>University of Connecticut</strong>
-                <span>PhD in Computer Science and Engineering</span>
-              </div>
-              <div class="edu-item">
-                <strong>Indian Institute of Technology Bombay</strong>
-                <span>M.Tech in Electrical Engineering (Microelectronics)</span>
-              </div>
+        <div class="module">
+          <h2>Beyond Research</h2>
+          <div class="module-grid">
+            <div class="module-image">
+              <img src="city-pic.jpg" alt="City visual">
             </div>
-
-            <div class="mini-card">
-              <h3>Selected highlights</h3>
-              <ul>
-                <li>Best Paper Award, ICLAD 2025</li>
-                <li>DAC Young Fellow, 2023</li>
-                <li>Synchrony Financial Cybersecurity Graduate Fellowship</li>
-                <li>Predoctoral Honorable Mention, 2024 & 2025</li>
-              </ul>
+            <div class="module-text">
+              <p>
+                Outside work, I spend time on languages, gym training, hiking, books, films, songs, travel, and cities. I like things that stay with you for a long time, whether that is a place, a book, a conversation, or a film. I have a special interest in New York City, and I plan to keep more photos and personal material on that side of the site. More on interests is <a href="interests.html">here</a>.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <p class="footer-note">
-          This homepage stays intentionally broad. The deeper research details and full paper list live on the research page, while photos and personal material can expand more fully on the interests page.
-        </p>
-      </div>
+        <div class="footer-note">
+          Main page overview. Research and interests pages hold the fuller details.
+        </div>
+      </section>
     </div>
   </main>
 </body>
