@@ -4,323 +4,499 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kiran Thorat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f1e8;
-      --paper: #fffdf9;
-      --panel: #fffaf3;
-      --line: #e7ddcf;
-      --text: #1f2937;
-      --muted: #5b6573;
-      --blue: #2563eb;
-      --green: #0f766e;
-      --shadow: 0 14px 36px rgba(31, 41, 55, 0.08);
-      --max: 1200px;
+      --bg:        #f2ede3;
+      --paper:     #faf7f1;
+      --paper2:    #fff;
+      --ink:       #181512;
+      --ink2:      #3a3530;
+      --muted:     #7a7068;
+      --rule:      #ddd5c8;
+      --teal:      #0d6b5c;
+      --teal-pale: #e5f2ef;
+      --gold:      #b08430;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --sans:      'Outfit', system-ui, sans-serif;
+      --g:         clamp(20px, 5.5vw, 80px);
+      --max:       1100px;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.10), transparent 20%),
-        radial-gradient(circle at bottom left, rgba(15, 118, 110, 0.10), transparent 24%),
-        linear-gradient(180deg, #fcfaf5 0%, #f6f1e8 100%);
-      line-height: 1.5;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color:inherit; text-decoration:none; }
 
-    a {
-      color: var(--blue);
-      text-decoration: none;
+    /* ══ NAV ══ */
+    nav {
+      position: sticky; top:0; z-index:100;
+      background: rgba(242,237,227,0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--rule);
+      display: flex; align-items:center; justify-content:space-between;
+      padding: 0 var(--g); height:50px;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .nav-brand { font-family:var(--serif); font-size:1.05rem; font-weight:500; letter-spacing:.01em; }
+    .nav-links { display:flex; gap:24px; list-style:none; }
+    .nav-links a {
+      font-size:.75rem; font-weight:500; letter-spacing:.09em;
+      text-transform:uppercase; color:var(--muted); transition:color .18s;
     }
+    .nav-links a:hover { color:var(--teal); }
 
-    img {
-      display: block;
-      width: 100%;
+    /* ══ HERO ══ */
+    .hero {
+      max-width: var(--max); margin:0 auto;
+      padding: clamp(44px,8vw,88px) var(--g) clamp(36px,5vw,60px);
+      display: grid; grid-template-columns: 1fr 230px;
+      gap: 52px; align-items: center;
     }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 20px 18px 30px;
+    .kicker {
+      font-size:.72rem; font-weight:600; letter-spacing:.16em;
+      text-transform:uppercase; color:var(--teal);
+      display:flex; align-items:center; gap:9px; margin-bottom:14px;
     }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-
-    .left-col {
-      position: sticky;
-      top: 16px;
-    }
-
-    .photo-card,
-    .links-card,
-    .intro-card,
-    .edu-card,
-    .section-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .photo-card {
-      overflow: hidden;
-    }
-
-    .photo-card img {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      background: #ddd;
-    }
-
-    .links-card {
-      margin-top: 10px;
-      padding: 12px;
-    }
-
-    .links-title {
-      margin: 0 0 8px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .links a {
-      display: inline-block;
-      padding: 7px 10px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .links a:hover {
-      background: #f8f4ec;
-      text-decoration: none;
-    }
-
-    .intro-card {
-      padding: 18px 20px;
-      background:
-        linear-gradient(135deg, rgba(37,99,235,0.05), rgba(15,118,110,0.03)),
-        var(--paper);
-    }
-
-    .eyebrow {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 6px;
-    }
-
+    .kicker::before { content:''; width:20px; height:1.5px; background:var(--teal); }
     h1 {
-      margin: 0 0 6px;
-      font-size: 2rem;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
+      font-family: var(--serif);
+      font-size: clamp(2rem,3.6vw,2.9rem);
+      font-weight: 500; line-height:1.1;
+      letter-spacing:-.01em; margin-bottom:16px;
     }
-
-    .subline {
-      margin: 0 0 10px;
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: #374151;
+    .hero-bio {
+      font-size:.97rem; font-weight:300; color:var(--ink2);
+      line-height:1.85; max-width:510px; margin-bottom:24px;
     }
+    .hero-bio strong { font-weight:600; color:var(--ink); }
 
-    .intro-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.97rem;
+    /* pills */
+    .pills { display:flex; flex-wrap:wrap; gap:7px; }
+    .pill {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:6px 14px; border-radius:999px;
+      border:1px solid var(--rule); background:var(--paper);
+      font-size:.78rem; font-weight:500; color:var(--ink2);
+      transition:all .18s;
     }
+    .pill:hover { border-color:var(--teal); color:var(--teal); background:var(--teal-pale); }
+    .pill.cv { background:var(--teal); border-color:var(--teal); color:#fff; }
+    .pill.cv:hover { background:#0a5248; }
 
-    .edu-card {
-      margin-top: 12px;
-      padding: 14px 16px;
+    /* photo */
+    .photo-wrap { position:relative; }
+    .photo-frame {
+      border-radius:18px; overflow:hidden;
+      aspect-ratio:3/4; background:var(--rule);
+      box-shadow: 0 24px 60px rgba(24,21,18,.14);
     }
-
-    .edu-card h2,
-    .section-card h2 {
-      margin: 0 0 10px;
-      font-size: 1.08rem;
+    .photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+    .photo-chip {
+      position:absolute; bottom:-10px; left:-10px;
+      background:var(--ink); color:#fff;
+      font-size:.65rem; font-weight:500; letter-spacing:.07em;
+      text-transform:uppercase; padding:8px 13px;
+      border-radius:9px; line-height:1.4;
+      box-shadow: 0 6px 20px rgba(24,21,18,.22);
     }
+    .photo-chip small { display:block; opacity:.48; font-size:.58rem; margin-bottom:2px; }
 
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    /* ══ DIVIDER ══ */
+    hr { border:none; border-top:1px solid var(--rule); margin:0 var(--g); }
+
+    /* ══ SECTION SHELL ══ */
+    .sec { max-width:var(--max); margin:0 auto; padding:clamp(36px,5vw,64px) var(--g); }
+    .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:26px; }
+    .sec-num { font-size:.66rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+    h2 { font-family:var(--serif); font-size:clamp(1.5rem,2.4vw,2.1rem); font-weight:400; }
+
+    /* ══ RESEARCH ══ */
+    /* generic intro */
+    .r-general {
+      background: var(--paper);
+      border:1px solid var(--rule);
+      border-radius:18px; padding:26px 28px;
+      margin-bottom:20px;
     }
-
-    .edu-item {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 10px 12px;
+    .r-general p {
+      font-size:.97rem; font-weight:300; color:var(--ink2);
+      line-height:1.9; max-width:760px;
     }
+    .r-general p + p { margin-top:12px; }
 
-    .edu-item strong {
-      display: block;
-      font-size: 0.95rem;
-      margin-bottom: 2px;
+    /* domain areas */
+    .domains { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:28px; }
+
+    .domain-card {
+      background:var(--paper); border:1px solid var(--rule);
+      border-radius:16px; padding:22px 24px;
+      position:relative; overflow:hidden;
+      transition: box-shadow .2s, transform .2s;
     }
-
-    .edu-item span {
-      font-size: 0.88rem;
-      color: var(--muted);
+    .domain-card:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(24,21,18,.08); }
+    .domain-card::before {
+      content:''; position:absolute; top:0; left:0;
+      width:3px; height:100%; background:var(--teal);
     }
+    .domain-card.gold::before { background:var(--gold); }
 
-    .section-card {
-      margin-top: 12px;
-      padding: 16px;
+    .domain-tag {
+      display:inline-block; font-size:.65rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase;
+      color:var(--teal); margin-bottom:7px;
     }
+    .domain-card.gold .domain-tag { color:var(--gold); }
 
-    .section-grid {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 14px;
-      align-items: start;
+    .domain-title {
+      font-family:var(--serif); font-size:1.1rem; font-weight:500;
+      margin-bottom:8px; line-height:1.2;
     }
-
-    .section-image {
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #ddd;
+    .domain-body {
+      font-size:.85rem; color:var(--ink2); font-weight:300;
+      line-height:1.75;
     }
-
-    .section-image img {
-      height: 180px;
-      object-fit: cover;
+    .domain-body a {
+      color:var(--teal); font-weight:500; text-decoration:underline;
+      text-decoration-color:rgba(13,107,92,.3); text-underline-offset:2px;
+      transition:text-decoration-color .18s;
     }
+    .domain-body a:hover { text-decoration-color:var(--teal); }
 
-    .section-text p {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 0.96rem;
+    /* paper list */
+    .papers-label {
+      font-size:.68rem; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--muted);
+      margin-bottom:14px;
+      display:flex; align-items:center; gap:12px;
     }
+    .papers-label::after { content:''; flex:1; height:1px; background:var(--rule); }
 
-    .section-text p:last-child {
-      margin-bottom: 0;
+    .papers { border-top:1px solid var(--rule); }
+    .paper {
+      display:grid; grid-template-columns:58px 1fr;
+      gap:14px; padding:15px 0;
+      border-bottom:1px solid var(--rule);
+      align-items:start;
     }
+    .venue {
+      display:inline-block; background:var(--ink); color:#fff;
+      font-size:.6rem; font-weight:700; letter-spacing:.05em;
+      padding:4px 7px; border-radius:5px;
+      white-space:nowrap; text-align:center; line-height:1.4;
+      margin-top:2px;
+    }
+    .venue.hi { background:var(--teal); }
+    .venue.gold { background:var(--gold); }
+    .p-title {
+      font-family:var(--serif); font-size:.97rem;
+      line-height:1.38; margin-bottom:3px;
+    }
+    .p-meta { font-size:.77rem; color:var(--muted); font-weight:300; font-style:italic; }
 
-    @media (max-width: 940px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+    /* ══ EXPERIENCE ══ */
+    .exp-row {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .exp-card {
+      background:var(--paper); border:1px solid var(--rule);
+      border-radius:14px; padding:18px 20px;
+    }
+    .exp-label { font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); margin-bottom:7px; }
+    .exp-card p { font-size:.86rem; color:var(--ink2); font-weight:300; line-height:1.72; }
+    .exp-card p + p { margin-top:7px; }
+    .award-list { list-style:none; margin-top:4px; }
+    .award-list li {
+      font-size:.84rem; color:var(--ink2); font-weight:300;
+      line-height:1.6; padding:4px 0;
+      border-bottom:1px solid var(--rule);
+    }
+    .award-list li:last-child { border-bottom:none; }
+    .award-list li::before { content:'↳ '; color:var(--teal); font-weight:600; }
 
-      .left-col {
-        position: static;
-      }
+    /* ══ PERSONAL ══ */
+    .personal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
 
-      .edu-grid,
-      .section-grid {
-        grid-template-columns: 1fr;
-      }
+    .p-card {
+      background:var(--paper); border:1px solid var(--rule);
+      border-radius:14px; padding:18px;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .p-card:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(24,21,18,.07); }
+    .p-icon { font-size:1.25rem; margin-bottom:8px; line-height:1; }
+    .p-title { font-family:var(--serif); font-size:.97rem; margin-bottom:5px; }
+    .p-body { font-size:.82rem; color:var(--muted); font-weight:300; line-height:1.65; }
+    .p-body a { color:var(--teal); text-decoration:underline; text-decoration-color:rgba(13,107,92,.3); text-underline-offset:2px; }
+    .p-body a:hover { text-decoration-color:var(--teal); }
 
-      .section-image img {
-        height: auto;
-      }
+    /* travel wide */
+    .p-card.wide {
+      grid-column:span 3; display:grid;
+      grid-template-columns:200px 1fr;
+      gap:0; padding:0; overflow:hidden; align-items:stretch;
+    }
+    .city-img { overflow:hidden; min-height:148px; }
+    .city-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .city-text { padding:20px 22px; }
+
+    /* ══ FOOTER ══ */
+    footer { background:var(--ink); border-top:1px solid var(--rule); }
+    .foot { max-width:var(--max); margin:0 auto; padding:22px var(--g); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+    .foot-brand { font-family:var(--serif); font-size:.97rem; color:#fff; }
+    .foot-links { display:flex; gap:18px; flex-wrap:wrap; }
+    .foot-links a { font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:rgba(255,255,255,.38); transition:color .18s; }
+    .foot-links a:hover { color:#fff; }
+
+    /* ══ ANIMATION ══ */
+    @keyframes up { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;} }
+    .hero-l { animation:up .6s ease both; }
+    .hero-r { animation:up .6s .12s ease both; }
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:820px){
+      .hero{grid-template-columns:1fr;gap:28px;}
+      .hero-r{max-width:200px;}
+      .photo-chip{display:none;}
+      .domains{grid-template-columns:1fr;}
+      .exp-row{grid-template-columns:1fr;}
+      .personal-grid{grid-template-columns:1fr 1fr;}
+      .p-card.wide{grid-column:span 2;grid-template-columns:160px 1fr;}
+    }
+    @media(max-width:520px){
+      .personal-grid{grid-template-columns:1fr;}
+      .p-card.wide{grid-column:span 1;grid-template-columns:1fr;}
+      .city-img{min-height:130px;}
+      .city-text{padding:14px;}
+      .paper{grid-template-columns:46px 1fr;gap:10px;}
+      .nav-links li:last-child{display:none;}
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <div class="layout">
-      <aside class="left-col">
-        <div class="photo-card">
-          <img src="./mypic.png" alt="Kiran Thorat">
-        </div>
 
-        <div class="links-card">
-          <div class="links-title">Links</div>
-          <div class="links">
-            <a href="https://github.com/kiranthorat3" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://orcid.org/0009-0005-9190-798X" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <a href="https://www.instagram.com/iamkiranthorat/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-          </div>
-        </div>
-      </aside>
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Kiran Thorat</span>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#personal">Personal</a></li>
+    <li><a href="https://github.com/kiranthorat3" target="_blank" rel="noopener">GitHub ↗</a></li>
+  </ul>
+</nav>
 
-      <section>
-        <div class="intro-card">
-          <div class="eyebrow">Applied AI · Machine Learning · Systems</div>
-          <h1>Kiran Thorat</h1>
-          <div class="subline">Researcher working in applied AI and machine learning for real-world technical problems.</div>
-          <p>
-            My work is broadly in machine learning systems, large language models, generative methods, and graph-based learning. I care about building methods that are useful in practice and grounded in real technical applications.
-          </p>
-        </div>
-
-        <div class="edu-card">
-          <h2>Education</h2>
-          <div class="edu-grid">
-            <div class="edu-item">
-              <strong>University of Connecticut</strong>
-              <span>PhD</span>
-            </div>
-            <div class="edu-item">
-              <strong>IIT Bombay</strong>
-              <span>M.Tech</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="section-card">
-          <h2>Research</h2>
-          <div class="section-grid">
-            <div class="section-image">
-              <img src="./research_pic.png" alt="Research visual">
-            </div>
-            <div class="section-text">
-              <p>
-                My research focuses on applied AI for structured technical problems. I work across machine learning systems, large language models, generative models, and graph learning, especially in settings where performance, efficiency, and real-world constraints all matter.
-              </p>
-              <p>
-                A lot of my recent work connects AI with hardware and design problems, including code generation, verification, security, and scalable learning methods. More research details and the full paper list are <a href="research.html">here</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="section-card">
-          <h2>Beyond Research</h2>
-          <div class="section-grid">
-            <div class="section-image">
-              <img src="./prague.png" alt="City visual">
-            </div>
-            <div class="section-text">
-              <p>
-                Outside work, I spend time on languages, gym training, hiking, books, films, songs, travel, and cities. I like things that stay with you for a long time, whether that is a place, a book, a conversation, or a film. I have a special interest in New York City, and I plan to keep more photos and personal material on that side of the site. More on interests is <a href="interests.html">here</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-l">
+    <p class="kicker">AI Researcher · Bay Area bound</p>
+    <h1>Kiran Thorat</h1>
+    <p class="hero-bio">
+      I'm finishing a <strong>PhD in Computer Science at UConn</strong> and heading to the Bay Area. I build AI systems that make designing computer chips faster, cheaper, and more reliable — tools that write hardware code, catch hidden security threats in chip designs, and predict where a chip layout will fail before it's ever manufactured. I have five years of combined research and industry experience spanning AI, machine learning, and chip engineering.
+    </p>
+    <div class="pills">
+      <a href="https://github.com/kiranthorat3" class="pill" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" class="pill" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://orcid.org/0009-0005-9190-798X" class="pill" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://www.instagram.com/iamkiranthorat/" class="pill" target="_blank" rel="noopener">Instagram</a>
+      <a href="cv.pdf" class="pill cv" target="_blank" rel="noopener">↓ CV</a>
     </div>
-  </main>
+  </div>
+  <div class="hero-r">
+    <div class="photo-wrap">
+      <div class="photo-frame"><img src="./mypic.png" alt="Kiran Thorat"></div>
+      <div class="photo-chip"><small>Next stop</small>Bay Area, CA</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- RESEARCH -->
+<div class="sec" id="research">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Research</h2></div>
+
+  <!-- Generic paragraph — any reader -->
+  <div class="r-general">
+    <p>
+      Designing a modern computer chip is one of the most complex engineering tasks humans undertake. A cutting-edge processor has tens of billions of transistors, and getting everything right — from how the chip is coded to how it's laid out on silicon — takes years and costs hundreds of millions of dollars. Even a small mistake can mean scrapping an entire design.
+    </p>
+    <p>
+      My research builds <strong>AI tools that automate and accelerate key parts of this process</strong>. Think of it as giving chip engineers a very capable AI collaborator: one that can write hardware code on command, flag security vulnerabilities hiding deep in a design, and look at a chip's layout image to predict where problems will arise — before a single prototype is ever built.
+    </p>
+  </div>
+
+  <!-- Domain-specific paragraphs -->
+  <div class="domains">
+
+    <div class="domain-card">
+      <div class="domain-tag">LLMs for Hardware Design</div>
+      <div class="domain-title">Teaching AI to write and verify chip code</div>
+      <div class="domain-body">
+        Hardware is described in specialized languages like Verilog — and writing correct, efficient Verilog is hard even for experts. I've built frameworks that use large language models to generate Verilog automatically, with feedback loops that optimize for power consumption, performance, and chip area simultaneously. One system — <a href="research.html">HiveGen</a> — breaks large chip designs into a hierarchy and generates each level independently, much like how a team of engineers would divide the work. Another, <a href="research.html">LLM-VeriPPA</a>, achieved 99.56% syntactic correctness on standard benchmarks, outperforming prior state-of-the-art.
+      </div>
+    </div>
+
+    <div class="domain-card gold">
+      <div class="domain-tag">Hardware Security</div>
+      <div class="domain-title">Finding malicious backdoors hidden in chip designs</div>
+      <div class="domain-body">
+        Hardware Trojans are deliberately hidden flaws inserted into a chip design — they're almost invisible to standard testing, but can be triggered to cause catastrophic failures or leak sensitive data. I built <a href="research.html">Trojan-Guard</a>, a graph neural network that treats a chip's circuit netlist as a graph and learns to spot suspicious patterns at a structural level, achieving 98.66% precision. I've also explored using LLMs with domain-specific agents and retrieval-augmented generation to enhance hardware security analysis pipelines.
+      </div>
+    </div>
+
+    <div class="domain-card">
+      <div class="domain-tag">Graph Learning for EDA</div>
+      <div class="domain-title">Accelerating chip verification with graph AI and GPU kernels</div>
+      <div class="domain-body">
+        Circuit designs are naturally graphs — millions of gates connected by wires. Graph neural networks are a natural fit for reasoning over them, but standard GNN training on circuit graphs is slow and memory-hungry at scale. <a href="research.html">GROOT</a> combines a new GNN algorithm with custom GPU kernel redesigns to speed up the verification step of logic synthesis by up to 5.8×. <a href="research.html">DR-CircuitGNN</a> takes a similar co-design approach to accelerate GNN training itself, achieving a 4.75× speedup on large circuit datasets.
+      </div>
+    </div>
+
+    <div class="domain-card gold">
+      <div class="domain-tag">Vision Models for Physical Design</div>
+      <div class="domain-title">Predicting chip layout problems using computer vision</div>
+      <div class="domain-body">
+        After logic is designed, it must be translated into a physical layout — specifying where every transistor sits on silicon. Layout problems like congestion and power-delivery failures are expensive to discover late. I've built generative and diffusion-based vision models that look at layout images directly and predict these issues early. One system predicts IR-drop (voltage drop across a chip's power network) by fusing image data with circuit graph information. Another predicts routing congestion with high spatial accuracy. Both are currently under review at top-tier venues — <a href="research.html">see full details</a>.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Paper list -->
+  <div class="papers-label">Selected publications</div>
+  <div class="papers">
+    <div class="paper">
+      <span class="venue hi">ICLAD<br>2025</span>
+      <div>
+        <div class="p-title">HiveGen — Hierarchical LLM-based Verilog generation for large chip designs</div>
+        <div class="p-meta">Best Paper Award · J. Tang, J. Qin, K. Thorat et al.</div>
+      </div>
+    </div>
+    <div class="paper">
+      <span class="venue">MLCAD<br>2025</span>
+      <div>
+        <div class="p-title">LLM-VeriPPA — Power, performance &amp; area-optimized Verilog via LLM refinement</div>
+        <div class="p-meta">K. Thorat, J. Zhao, Y. Liu, A. Hasan, H. Peng et al. · 99.56% syntactic correctness</div>
+      </div>
+    </div>
+    <div class="paper">
+      <span class="venue">ICCAD<br>2025</span>
+      <div>
+        <div class="p-title">GROOT — Graph + GPU co-design for logic synthesis verification</div>
+        <div class="p-meta">K. Thorat, H. Peng, Y. Luo, X. Xie et al. · 5.8× runtime improvement over SOTA</div>
+      </div>
+    </div>
+    <div class="paper">
+      <span class="venue">IJCNN<br>2025</span>
+      <div>
+        <div class="p-title">Trojan-Guard — GNN-based hardware Trojan detection in RTL designs</div>
+        <div class="p-meta">K. Thorat, A. Hasan, C. Ding, Z. Shi · 98.66% precision</div>
+      </div>
+    </div>
+    <div class="paper">
+      <span class="venue">ICS<br>2025</span>
+      <div>
+        <div class="p-title">DR-CircuitGNN — Sparse GPU kernels for fast GNN training on circuit graphs</div>
+        <div class="p-meta">Y. Luo, S. Li, K.G. Thorat et al. · 4.75× training speedup</div>
+      </div>
+    </div>
+    <div class="paper">
+      <span class="venue">NeurIPS<br>2023</span>
+      <div>
+        <div class="p-title">LinGCN — Private GNN inference over encrypted data, 14.2× faster</div>
+        <div class="p-meta">H. Peng, R. Ran, K. Thorat et al. · Homomorphically encrypted inference</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- PERSONAL -->
+<div class="sec" id="personal">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Outside Work</h2></div>
+  <div class="personal-grid">
+
+    <div class="p-card">
+      <div class="p-icon">🗣</div>
+      <div class="p-title">Languages</div>
+      <div class="p-body">Fluent in English, Marathi, and Hindi. Some Spanish — enough to follow a conversation, not quite enough to lead one.</div>
+    </div>
+
+    <div class="p-card">
+      <div class="p-icon">🏋</div>
+      <div class="p-title">Training</div>
+      <div class="p-body">Regular gym work and hiking — a good counterweight to a desk-heavy life. Strength training has become one of the more grounding parts of the week.</div>
+    </div>
+
+    <div class="p-card">
+      <div class="p-icon">📖</div>
+      <div class="p-title">Reading</div>
+      <div class="p-body">Drawn to books that don't let you off the hook — <em>Annihilation of Caste</em>, <em>1984</em>, and <em>Crime and Punishment</em> among favorites. Interested in <a href="interests.html">more of what I'm reading</a>.</div>
+    </div>
+
+    <div class="p-card wide">
+      <div class="city-img"><img src="./prague.png" alt="Prague"></div>
+      <div class="city-text">
+        <div class="p-icon">🌍</div>
+        <div class="p-title">Travel &amp; Cities</div>
+        <div class="p-body">
+          I like seeing places the way locals do — on foot, slowly, without a packed itinerary. I've spent time in Argentina, Norway, Czech Republic, Germany, and Poland. New York City has a particular pull: its scale, its contradictions, the way every neighborhood carries its own rhythm. <a href="interests.html">More on that here</a>. Next chapter: the Bay Area.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<!-- EXPERIENCE (compact, bottom) -->
+<div class="sec" id="experience">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Experience &amp; Recognition</h2></div>
+  <div class="exp-row">
+
+    <div class="exp-card">
+      <div class="exp-label">Research &amp; Teaching · UConn · 2022–present</div>
+      <p>Graduate Research Assistant building AI systems for chip design. Also TA for <em>Introduction to Computer Architecture</em> (CSE 3666) — running labs and discussions on RISC-V assembly across five semesters.</p>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-label">Industry · Micron Technology · 2019–2020</div>
+      <p>Engineer at one of the world's largest memory chip makers. Built verification tools for low-power DRAM chips and developed automation that cut simulation time by more than half on DDR5 projects.</p>
+    </div>
+
+    <div class="exp-card" style="grid-column:span 2">
+      <div class="exp-label">Awards &amp; Fellowships</div>
+      <ul class="award-list">
+        <li>Best Paper Award — ICLAD 2025</li>
+        <li>Synchrony Financial Cybersecurity Graduate Fellowship · Fall 2023</li>
+        <li>Eversource Energy Center Graduate Fellowship · 2023</li>
+        <li>DAC 2023 Young Fellow — Design Automation Conference, San Francisco</li>
+        <li>UConn Predoctoral Honorable Mention · 2024 &amp; 2025</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <span class="foot-brand">Kiran Thorat</span>
+    <nav class="foot-links">
+      <a href="https://github.com/kiranthorat3" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kiran-thorat-a9949579/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://orcid.org/0009-0005-9190-798X" target="_blank" rel="noopener">ORCID</a>
+      <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</footer>
+
 </body>
 </html>
